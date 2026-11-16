@@ -29,6 +29,7 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parent
 CHANNELS_FILE = ROOT / "channels.txt"
 KEYWORDS_FILE = ROOT / "keywords.txt"
+EXCLUDE_FILE = ROOT / "exclude.txt"
 STATE_FILE = ROOT / "state.json"
 
 MSK = timezone(timedelta(hours=3))
@@ -62,10 +63,10 @@ def norm(s):
     return s.lower().replace("ё", "е")
 
 
-def load_keywords():
-    """Возвращает список (подпись, regex, режим). режим: 'norm' — по нормализованному тексту, 'raw' — по исходному."""
+def compile_patterns(lines):
+    """Список (подпись, regex, режим). режим: 'norm' — по нормализованному тексту, 'raw' — по исходному."""
     kws = []
-    for line in KEYWORDS_FILE.read_text(encoding="utf-8").splitlines():
+    for line in lines:
         kw = line.strip()
         if not kw or kw.startswith("#"):
             continue
@@ -79,6 +80,24 @@ def load_keywords():
             rx = re.compile(rf"(?<![{LETTER}])" + r"\s+".join(parts))
             kws.append((kw, rx, "norm"))
     return kws
+
+
+def load_keywords():
+    return compile_patterns(KEYWORDS_FILE.read_text(encoding="utf-8").splitlines())
+
+
+def load_exclude():
+    """exclude.txt: до строки [НО ПРИСЫЛАТЬ...] — стоп-слова, после — слова-исключения."""
+    if not EXCLUDE_FILE.exists():
+        return [], []
+    stop, keep, cur = [], [], None
+    cur = stop
+    for line in EXCLUDE_FILE.read_text(encoding="utf-8").splitlines():
+        if line.strip().startswith("["):
+            cur = keep
+            continue
+        cur.append(line)
+    return compile_patterns(stop), compile_patterns(keep)
 
 
 def load_state():
@@ -245,9 +264,10 @@ def main():
     now = datetime.now(timezone.utc)
     channels = load_channels()
     keywords = load_keywords()
+    stop_words, keep_words = load_exclude()
     state = load_state()
 
-    items, failed, checked = [], [], 0
+    items, failed, checked, skipped = [], [], 0, 0
     for name, label in channels:
         last_id = state.get(name)
         posts, max_id = read_channel(name, last_id, now)
@@ -258,6 +278,12 @@ def main():
         checked += 1
         for p in posts:
             hits, pos = find_keywords(p["text"], keywords)
+            if hits and stop_words:
+                stop_hits, _ = find_keywords(p["text"], stop_words)
+                if stop_hits and not find_keywords(p["text"], keep_words)[0]:
+                    skipped += 1
+                    print(f"    пропущен {p['url']} (стоп-слова: {', '.join(stop_hits)})")
+                    continue
             if hits:
                 items.append((p["date"], format_item(label, name, p, hits, pos), name))
         if max_id is not None:
@@ -279,6 +305,8 @@ def main():
 
     if items:
         header = f"📬 <b>Школьные новости · {today}</b>\nНайдено постов: {len(items)} в каналах: {n_ch}"
+        if skipped:
+            header += f"\nОтсеяно новостей о победах и наградах: {skipped}"
         messages = split_messages(header, [x[1] for x in items], footer)
     elif os.environ.get("SEND_EMPTY", "1") != "0":
         messages = [f"📭 <b>{today}</b>: за сутки совпадений нет (проверено каналов: {checked})"
@@ -297,7 +325,7 @@ def main():
     # состояние сохраняем только если сводка ушла, иначе завтра посты придут повторно
     if ok and not dry:
         save_state(state)
-    print(f"Готово: каналов прочитано {checked}, не прочитано {len(failed)}, совпадений {len(items)}")
+    print(f"Готово: каналов прочитано {checked}, не прочитано {len(failed)}, совпадений {len(items)}, отсеяно {skipped}")
     if not ok:
         sys.exit(1)
 

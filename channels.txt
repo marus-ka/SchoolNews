@@ -17,7 +17,7 @@ sch_int_official | Интеллектуал
 intpriem2025 | Интеллектуал
 kapitsaschool_1557 | Школа 1557
 school_444_msk | Школа 444
-school1519official | Школа 1519
+# school1519official | Школа 1519
 school1574 | Школа 1574
 sch1158mos | Школа 1158
 school_1210 | Школа 1210
@@ -26,8 +26,8 @@ moschool67 | Школа 67
 silaeder | Силаэдр
 vgfizmat | Воробьевы горы
 dvorec_pionerov | Воробьевы горы
-sch1679 | Школа 1679
-mathclass1679 | Школа 1679
+# sch1679 | Школа 1679
+# mathclass1679 | Школа 1679
 coc2030 | Школа 2030
 PKschoolnews | Покровский квартал
 pk1541 | Школа 1541

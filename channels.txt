@@ -1,0 +1,103 @@
+# Каналы школ для мониторинга. Формат:  имя_канала | подпись в сводке
+# Строка с # в начале отключена. Источник: таблица, лист «Контакты и поступление» (06.11.2026).
+
+fmsh2007friends | Школа 2007
+sch1580 | Школа 1580
+school1568 | Школа 1568
+ru1543 | Школа 1543
+alfa1502 | Школа 1502
+school2086 | Школа 2086
+lab2x2 | Школа 2086, Школа 1210, Покровский квартал, Школа 1273
+school_1514 | Школа 1514
+msk1534 | Школа 1534
+sch1329 | Школа 1329
+Lit1533 | Школа 1533
+kurchat | Курчатовская школа
+sch_int_official | Интеллектуал
+intpriem2025 | Интеллектуал
+kapitsaschool_1557 | Школа 1557
+school_444_msk | Школа 444
+school1519official | Школа 1519
+school1574 | Школа 1574
+sch1158mos | Школа 1158
+school_1210 | Школа 1210
+nschool88 | Новая школа
+moschool67 | Школа 67
+silaeder | Силаэдр
+vgfizmat | Воробьевы горы
+dvorec_pionerov | Воробьевы горы
+sch1679 | Школа 1679
+mathclass1679 | Школа 1679
+coc2030 | Школа 2030
+PKschoolnews | Покровский квартал
+pk1541 | Школа 1541
+School_109 | Школа 109
+school1501 | Школа 1501
+sch1576 | Школа 1576
+school1273uz | Школа 1273
+ReV5daS6nX4gNWgQ | Школа 1518
+sch192 | Школа 192
+presscentr1547 | Школа 1547
+engineers1581 | Школа 1581
+school_1571 | Школа 1571
+lyceum2schmoscow | Вторая школа
+school_548_tsaritsyno | Школа 548
+school179moscow | Школа 179
+mephi_1511 | Предуниверситарий МИФИ (1511), Школа 1511
+schoolmsu | Унив. гимназия МГУ
+ugmsuschool | Унив. гимназия МГУ
+school57official | Школа 57
+lyceum1535 | Школа 1535
+# +kGKz2XyNZ3FiMGQ6 | СУНЦ МГУ   ← закрытый канал (ссылка-приглашение), веб-версии нет
+lyceumhse | Лицей НИУ ВШЭ
+letovonews | Летово
+sch2101 | Школа 2101
+schofmath2101 | Школа 2101
+sch2107 | Школа 2107
+school218 | Школа 218
+school_cpm_pk | ЦПМ
+Sch1575 | Школа 1575
+ftl_name | ФТЛ Капицы
+ftl_name_admission_campaing | ФТЛ Капицы
+preduniversariymai | Предуниверсарий МАИ
+school1517m | Школа 1517
+school1589 | Школа 1589
+shkola_1231 | Школа 1231
+arbatschool1234 | Школа 1234, Школа 199
+office1553 | Школа 1553
+mcl_intellect | Интеллект
+schnpv | Школа на проспекте Вернадского
+colegio1558 | Школа 1558
+ds_mskobr | Цифровая школа
+school1570 | Школа 1570
+primakov | Гимназия Примакова
+school_1253 | Школа 1253
+schoolChuykova | Школа 1303
+ChemicalLyceum | Школа 1303
+szaosch58 | Школа 58
+shkola_1270_vektor | Школа 1270
+School1324 | Школа 1324
+MoscowSchool45 | Школа 45
+school_1537 | Школа 1537
+myschool1505 | Школа 1505
+technolyceum | Технолицей Долгих
+school2054 | Школа 2054
+boomerangsreda | Бумеранг
+horoschool | Хорошкола
+schoolpresident | Президент
+school_1383 | Школа 1383
+proengiclasses | Школа 1383, Школа 17
+school2123 | Школа 2123
+ecus_lyceum | Экус
+iotclasses | Школа 17
+school17_moscow | Школа 17
+school1538mitino | Школа 1538
+sch171 | Школа 171
+sch354 | Школа 354
+Sch_1101 | Школа 1101
+school_625 | Школа 625
+V8J9sn0ahYthMTUy | Школа 1252
+heritageinternationalschool | Heritage School
+AlgorithmSchool | Алгоритм
+primaschoolvao | Прима-Школа
+lgeg_ru | LGEG
